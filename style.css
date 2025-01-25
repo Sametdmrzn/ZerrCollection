@@ -1,0 +1,174 @@
+/* Genel stil */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Header */
+header h1 {
+    text-align: center;
+}
+
+/* Banner Container */
+.banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Dikeyde ortalar */
+    align-items: center; /* Yatayda ortalar */
+    text-align: center; /* Yazıları ortalar */
+    width: 960px; /* Default genişlik */
+    height: 350px; /* Default yükseklik */
+    margin: 0 auto; /* Sayfanın ortasında konumlandırma */
+    margin-top: 70px;
+}
+
+/* Banner Image */
+.banner img {
+    width: 100%; /* Resmi banner genişliğine göre ölçekler */
+    height: 100%; /* Resmi banner yüksekliğine göre ölçekler */
+    object-fit: cover; /* Resmi orantılı şekilde sığdırma */
+}
+
+.banner h1, .banner p {
+    color: white; /* Yazı rengini beyaz yapar */
+}
+
+/* Responsive Design for Smaller Screens */
+@media screen and (max-width: 1024px) {
+    .banner {
+        width: 80%; /* Orta boyutlu ekranlar için genişlik %80 */
+        height: 300px; /* Yüksekliği daha küçük yap */
+        margin-top: 50px; /* Üstten boşluk */
+    }
+
+    .banner h1 {
+        font-size: 24px; /* Başlık fontunu küçült */
+    }
+
+    .banner p {
+        font-size: 16px; /* Paragraf fontunu küçült */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .banner {
+        width: 90%; /* Küçük ekranlar için genişlik %90 */
+        height: 250px; /* Daha küçük yükseklik */
+        margin-top: 30px; /* Üstten daha küçük boşluk */
+    }
+
+    .banner h1 {
+        font-size: 20px; /* Başlık fontunu daha da küçült */
+    }
+
+    .banner p {
+        font-size: 14px; /* Paragraf fontunu daha da küçült */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .banner {
+        width: 100%; /* Mobil ekranlar için genişlik %100 */
+        height: 200px; /* Yüksekliği daha da küçült */
+        margin-top: 20px; /* Daha küçük üst boşluk */
+    }
+
+    .banner h1 {
+        font-size: 18px; /* Başlık fontunu daha da küçült */
+    }
+
+    .banner p {
+        font-size: 12px; /* Paragraf fontunu daha da küçült */
+    }
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #000000;
+    position: relative;
+    z-index: 1000;
+}
+
+nav .logo a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 24px;
+}
+
+nav .nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+}
+
+nav .nav-links li {
+    margin: 0 30px;
+}
+
+nav .nav-links a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 18px;
+}
+
+nav .hamburger {
+    display: none; /* Varsayılan olarak gizli */
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 30px;
+    width: 30px;
+}
+
+nav .hamburger .bar {
+    height: 4px;
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+}
+
+/* Mobil görünümde hamburger menü */
+@media screen and (max-width: 768px) {
+    nav .nav-links {
+        display: none; /* Varsayılan olarak gizli */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        flex-direction: column; /* Dikey düzen */
+        background-color: rgba(0, 0, 0, 0.95);
+        width: 100%;
+        height: 100vh; /* Ekranın tamamını kapla */
+        justify-content: center; /* Bağlantıları ortala */
+        align-items: center;
+        transition: all 0.3s ease-in-out;
+    }
+
+    nav .nav-links.active {
+        display: flex; /* Menü açıldığında görünür hale getir */
+
+    }
+
+    nav .nav-links li {
+        margin: 10px 0; /* Bağlantılar arasında boşluk */
+    }
+
+    nav .hamburger {
+        display: flex; /* Hamburger menüyü mobilde göster */
+    }
+}
+
+/* Footer */
+footer {
+    background-color: #000000;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 291px;
+}
