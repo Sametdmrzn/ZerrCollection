@@ -15,7 +15,6 @@ if ($category_id > 0) {
 
     if ($category_result->num_rows > 0) {
         $category_name = $category_result->fetch_assoc()['name'];
-        echo "<h2>$category_name</h2>";
     } else {
         echo "<p>Geçersiz kategori.</p>";
         exit;
@@ -34,10 +33,10 @@ if ($result->num_rows > 0) {
     echo "<div class='products'>";
     while ($product = $result->fetch_assoc()) {
         echo "<div class='product'>";
-        echo "<img src='" . $product['image_url'] . "' alt='" . $product['name'] . "'>";
+        echo "<img src='" . $product['image_path'] . "' alt='" . $product['name'] . "'>";
         echo "<h3>" . $product['name'] . "</h3>";
-        echo "<p>" . $product['description'] . "</p>";
-        echo "<p>Price: $" . $product['price'] . "</p>";
+        echo "<p>Fiyat: ₺" . $product['price'] . "</p>";
+        echo "<button class='add-to-cart' data-name='" . $product['name'] . "' data-price='" . $product['price'] . "'>Sepete Ekle</button>";
         echo "</div>";
     }
     echo "</div>";
@@ -47,3 +46,5 @@ if ($result->num_rows > 0) {
 
 include 'footer.php';
 ?>
+
+<script src="script.js"></script>

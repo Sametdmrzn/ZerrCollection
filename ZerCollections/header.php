@@ -9,6 +9,8 @@ include('db.php');  // Veritabanı bağlantısını dahil et
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <title>ZerCollection</title>
 </head>
 <body>
@@ -16,6 +18,7 @@ include('db.php');  // Veritabanı bağlantısını dahil et
 <header>
     <h1>ZerColection</h1>
 </header>
+
 
 <nav>
     <div class="logo">
@@ -34,6 +37,11 @@ include('db.php');  // Veritabanı bağlantısını dahil et
             echo "No links found.";
         }
         ?>
+           <div class="cart-icon-wrapper">
+        <a href="cart.php" class="cart-icon">
+            <i class="fas fa-shopping-cart"></i>
+        </a>
+    </div>
     </ul>
     <div class="hamburger" id="hamburger">
         <div class="bar"></div>

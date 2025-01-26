@@ -9,7 +9,7 @@ include 'db.php';
 
 
 <div class="banner">
-    <img src="resimler/Gray Minimalist New Collection Banner.png" alt="Banner Image">
+    <img src="uploads/Gray Minimalist New Collection Banner.png" alt="Banner Image">
 </div>
 
 
