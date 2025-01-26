@@ -15,38 +15,34 @@ include('db.php');  // Veritabanı bağlantısını dahil et
 </head>
 <body>
 
-<header>
-    <h1>ZerColection</h1>
-</header>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.php">Logo</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <?php
+                // Veritabanından navbar bağlantılarını çekme
+                $sql = "SELECT label, url FROM navbar_links";
+                $result = $conn->query($sql);
 
-
-<nav>
-    <div class="logo">
-    </div>
-    <ul class="nav-links">
-        <?php
-        // Veritabanından navbar bağlantılarını çekme
-        $sql = "SELECT label, url FROM navbar_links";
-        $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
-                echo "<li><a href='" . $row['url'] . "'>" . $row['label'] . "</a></li>";
-            }
-        } else {
-            echo "No links found.";
-        }
-        ?>
-           <div class="cart-icon-wrapper">
-        <a href="cart.php" class="cart-icon">
-            <i class="fas fa-shopping-cart"></i>
-        </a>
-    </div>
-    </ul>
-    <div class="hamburger" id="hamburger">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        echo "<li class='nav-item'><a class='nav-link' href='" . $row['url'] . "'>" . $row['label'] . "</a></li>";
+                    }
+                } else {
+                    echo "<li class='nav-item'><span class='nav-link'>No links found.</span></li>";
+                }
+                ?>
+            </ul>
+            <div class="d-flex">
+                <a href="cart.php" class="btn btn-outline-primary">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+            </div>
+        </div>
     </div>
 </nav>
 

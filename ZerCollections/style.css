@@ -17,7 +17,8 @@ header h1 {
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: 960px;
+    width: 100%;
+    max-width: 960px;
     height: 350px;
     margin: 0 auto;
     margin-top: 70px;
@@ -87,74 +88,69 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 10px 20px;
     background-color: #000000;
-    position: relative;
-    z-index: 1000;
 }
 
-nav .logo a {
+nav .navbar-brand {
     color: rgb(255, 255, 255);
-    text-decoration: none;
     font-size: 24px;
+    text-decoration: none;
+    flex: 1; /* Logo sola dayalı */
 }
 
-nav .nav-links {
-    list-style: none;
+nav .navbar-nav {
     display: flex;
+    justify-content: center;
+    flex: 2; /* Kategoriler ortada */
+    list-style: none;
     margin: 0;
     padding: 0;
-    justify-content: center;
 }
 
-nav .nav-links li {
-    margin: 0 30px;
+nav .nav-item {
+    margin: 0 20px;
 }
 
-nav .nav-links a {
+nav .nav-link {
     color: rgb(255, 255, 255);
     text-decoration: none;
     font-size: 18px;
 }
 
-nav .hamburger {
-    display: none; /* Varsayılan olarak gizli */
-    cursor: pointer;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 30px;
-    width: 30px;
+nav .d-flex {
+    flex: 1; /* Sepet ikonu sağa dayalı */
+    justify-content: flex-end;
 }
 
-nav .hamburger .bar {
-    height: 4px;
-    width: 100%;
-    background-color: white;
-    border-radius: 5px;
+nav .d-flex a {
+    color: white;
+    font-size: 18px;
 }
 
-/* Mobil görünümde hamburger menü */
+/* Mobil Görünümde Hamburger Menü */
 @media screen and (max-width: 768px) {
-    nav .nav-links {
-        display: none; /* Varsayılan olarak gizli */
-        position: absolute;
-        top: 100%;
-        left: 0;
+    nav .navbar-nav {
+        display: none;
+    }
+
+    nav .navbar-nav.active {
+        display: flex;
         flex-direction: column;
-        background-color: rgba(0, 0, 0, 0.95);
         width: 100%;
-        height: 100vh;
-        justify-content: center;
-        align-items: center;
-        transition: all 0.3s ease-in-out;
+        background-color: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 60px;
+        left: 0;
     }
 
-    nav .nav-links.active {
-        display: flex; /* Menü açıldığında görünür hale gelir */
+    nav .nav-item {
+        text-align: center;
+        width: 100%;
     }
 
-    nav .hamburger {
-        display: flex; /* Hamburger menüyü mobilde göster */
+    nav .navbar-toggler {
+        display: block;
     }
 }
 
@@ -235,7 +231,7 @@ footer {
     color: white;
     padding: 20px;
     text-align: center;
-    margin-top: 290px;  
+    margin-top: 290px;
 }
 
 .products {
@@ -269,7 +265,7 @@ footer {
     color: #555;
 }
 
-.add-to-cart{
+.add-to-cart {
     display: inline-block;
     margin-top: 10px;
     padding: 10px 20px;
