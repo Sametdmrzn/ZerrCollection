@@ -1,0 +1,31 @@
+[
+    {
+      "id": 1,
+      "name": "Kot Pantolon",
+      "price": "350 TL",
+      "image": "images/banner/1.jpg",
+      "category": "esarp "
+    },
+    {
+      "id": 2,
+      "name": "Klasik Pantolon",
+      "price": "450 TL",
+      "image": "images/banner/1.jpg",
+      "category": "bone"
+    },
+    {
+      "id": 3,
+      "name": "Beyaz Gömlek",
+      "price": "300 TL",
+      "image": "images/banner/1.jpg",
+      "category": "bone"
+    },
+    {
+      "id": 4,
+      "name": "Kot Gömlek",
+      "price": "320 TL",
+      "image": "images/banner/1.jpg",
+      "category": "bone"
+    }
+  ]
+  
