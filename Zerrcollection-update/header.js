@@ -81,7 +81,7 @@ class MyHeader extends HTMLElement {
             </ul>
 
             <!-- Sepet İkonu (Masaüstü İçin) -->
-            <a href="sepet.html" class="ms-3 d-none d-lg-block">
+            <a href="cart.html" class="ms-3 d-none d-lg-block">
                 <i class="fa-solid fa-cart-shopping fs-4 text-muted"></i>
             </a>
         </div>

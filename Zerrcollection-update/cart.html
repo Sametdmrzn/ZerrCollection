@@ -16,22 +16,93 @@
 
 
 
-<!-- Sepet Görüntüleme Alanı -->
-<div class="cart">
-    <h2>Sepetiniz</h2>
-    <div id="cart-items">Sepetiniz boş</div>
+
+
+
+<div class="container mt-5">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Görsel</th>
+                <th scope="col">Ürün Adı</th>
+                <th scope="col">Adet</th>
+                <th scope="col">Fiyat</th>
+                <th scope="col">Toplam</th>
+                <th scope="col">Sil</th>
+            </tr>
+        </thead>
+        <tbody id="cart-items" class="table-group-divider">
+            <!-- Ürünler buraya eklenecek -->
+        </tbody>
+    </table>
+    <button class="btn btn-danger mt-4" onclick="clearCart()">🗑️ Sepeti Temizle</button>
+    <button class="btn btn-success mt-4" onclick="sendOrderDirectly()">📲 WhatsApp’a Siparişi Gönder</button>
+
 </div>
+    <script>
+    // ✅ LocalStorage'daki ürünleri tabloya ekle
+    function loadCart() {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let cartTable = document.getElementById("cart-items");
+        cartTable.innerHTML = ""; // Önce temizle
+    
+        cart.forEach((product, index) => {
+            cartTable.innerHTML += `
+                <tr>
+                    <th scope="row">${index + 1}</th>
+                    <td><img src="${product.image}" width="40"></td>
+                    <td>${product.name}</td>
+                    <td>
+                        <button class="btn btn-sm btn-outline-secondary" onclick="updateQuantity(${product.id}, -1)">➖</button>
+                        ${product.quantity}
+                        <button class="btn btn-sm btn-outline-secondary" onclick="updateQuantity(${product.id}, 1)">➕</button>
+                    </td>
+                    <td>${product.price} TL</td>
+                    <td>${(product.price * product.quantity).toFixed(2)} TL</td>
+                    <td><button class="btn btn-sm btn-light" onclick="removeFromCart(${product.id})">❌</button></td>
+                </tr>
+            `;
+        });
+    }
+    
+    // ✅ Ürün miktarını artır/azalt
+    function updateQuantity(productId, change) {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let product = cart.find(p => p.id === productId);
+        
+        if (product) {
+            product.quantity += change;
+            if (product.quantity <= 0) {
+                cart = cart.filter(p => p.id !== productId); // 0 olursa ürünü kaldır
+            }
+        }
+    
+        localStorage.setItem("cart", JSON.stringify(cart));
+        loadCart();
+    }
+    
+    // ✅ Ürünü tamamen sil
+    function removeFromCart(productId) {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart = cart.filter(p => p.id !== productId);
+    
+        localStorage.setItem("cart", JSON.stringify(cart));
+        loadCart();
+    }
+    
+    // ✅ Sepeti tamamen temizle
+    function clearCart() {
+        localStorage.removeItem("cart");
+        loadCart();
+    }
+    
+    // Sayfa açılınca ürünleri yükle
+    loadCart();
+    </script>
+    
+    
 
-<button id="send-cart">Sepeti Gönder</button>
-
-<footer class="footer">
-    <div class="footer-container">
-        <p>&copy; 2025 Tüm Hakları Saklıdır.</p>
-        <ul class="footer-links">
-            <li><a href="gizlilik-politikasi.html">Gizlilik Politikası</a></li>
-            <li><a href="iletisim.html">İletişim</a></li>
-        </ul>
-    </div>
 
 
     <my-footer></my-footer>
